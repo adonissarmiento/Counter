@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
-import Counters from './components/counters'
+import Navbar from './components/Navbar'
+import Counters from './components/counters';
 
 function App() {
   return (
     <div>
+          <Navbar />
           <Counters />
     </div>
   );
