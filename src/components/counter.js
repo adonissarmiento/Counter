@@ -1,36 +1,23 @@
  import React, { Component } from 'react'; 
-
+ import { get } from 'lodash';
+ 
  class Counter extends Component {
-    //  state = {
-    //      value: this.props.counter.value
-    //     //  tags: ['tag1', 'tag2', 'tag3']
-    //  };
-
-    // 
-
-
-    //  styles = {
-    //      fontSize: 15,
-    //      fontWieght: 'bold'
-    //  }
-
-    //  renderTags () {
-    //      if (this.state.tags.length === 0) return <p>No Tags</p>;
-    //      return <ul>{this.state.tags.map(tag => <li key={tag}>{tag }</li>)}</ul>;
-    //  }
+    componentDidUpdate(prevProps, prevState) {
+        console.log('prevProps', prevProps);
+        console.log('prevState', prevState);
+    }
      
-     render() { 
-         return (
+     render() {   
+         console.log('length', this.props.totalLength);
+         return(
         <React.Fragment>
             <p>
                 {this.props.counter.id}
                 <span className={this.getBadgeClasses()}>{ this.formatCounter() }</span>
-                <button onClick={() => this.props.onIncrement(this.props.counter)} className='btn btn-secondary btn-sm'>Increment</button>
-                <button onClick={() => this.props.onDelete(this.props.counter.id)} className='btn btn-danger btn-sm m-2'>Delete</button>
+                <button onClick={() => this.props.onIncrement(this.props.counter)} className='btn btn-green btn-sm'>+</button>
+                <button onClick={() => this.props.onDecrement(this.props.counter)} disabled={this.props.counter.value  === 0} className='btn btn-red btn-sm'>-</button>
+                <button onClick={() => this.props.onDelete(this.props.counter.id)}  className='btn btn-black btn-sm m-2'>Delete</button>
             </p>
-            {/* {this.state.tags.length === 0 && 'Please Create a Tag!'}
-            {this.renderTags()} */}
-            {/* <ul>{this.state.tags.map(tag => <li key={tag}>{tag }</li>)}</ul> */}
         </React.Fragment>
         ); 
      }

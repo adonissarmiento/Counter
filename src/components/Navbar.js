@@ -1,16 +1,25 @@
-import React, { Component } from 'react'
-import { MDBNavbar } from 'mdbreact';
+import React from 'react'
 
-class Navbar extends Component {
-    render() {
-        return (
-            <React.Fragment>
-                <MDBNavbar>
+// Stateless Functional Component
 
-                </MDBNavbar>
-            </React.Fragment>
-        ); 
-    }
-}
+const NavBar = ({ totalCounters, totalItems }) => {
+    console.log('NavBar - Rendered')
+    return (
+        <nav className='navbar navbar-light bg-light'>
+            <a className='navbar-brand' href='#sample'>
+                Number of Active Counter(s): {" "}
+                <span className='badge badge-pill badge-secondary'>
+                    {totalCounters}
+                </span>
+            </a>
+            <a className='navbar-brand' href='#sample'>
+                Total number of Items: {" "}
+                <span className='badge badge-pill badge-secondary'>
+                    {totalItems}
+                </span>
+            </a>
+        </nav>
+    ); 
+};
  
-export default Navbar;
+export default NavBar; 
